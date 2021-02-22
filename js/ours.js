@@ -1,12 +1,15 @@
 console.log('bonjour')
 
+/**
 
-const promise01 = fetch("http://localhost:3000/api/teddies")
-promise01.then((response) => {
-    console.log(response)
-})
-.catch((erreur) => console.log(erreur))
+fetch("http://localhost:3000/api/teddies")
+.then(response => response.json())
+.then(response => alert(JSON.stringify(response)))
+.catch(error => alert("Erreur : " + error));
 
+console.log()
+
+**/
 
 
 
@@ -14,7 +17,10 @@ promise01.then((response) => {
 fetch ("http://localhost:3000/api/teddies")
 .then(res => res.json())
 .then(data => console.log(data))
+.catch(error => alert("Erreur : " + error));
 
+
+var x = document.getElementsByTagName("BODY")[0]
 
 
 
