@@ -3,37 +3,47 @@ console.log('bonjour')
 window.onload = function get_body() {
 
     var x = document.getElementsByTagName("body")[0]
-   
 
+    fetch("http://localhost:3000/api/teddies")
+        .then(res => res.json())
+        /*.then(function (data)*/ 
+        .then(res => {
+          /*  for (var teddy in data) {*/
+          for (let i = 0; i < res.length; i++) {
+              /* var names = name[i] */
+                let displayCatalogue = document.getElementById('catalogueteddy')
+                let teddySection = document.createElement('section')
 
-fetch ("http://localhost:3000/api/teddies")
-.then(res => res.json())
-.then ( function (data){for (var teddy in data) {
-    console.log(data[teddy]["imageUrl"])
-    console.log(data[teddy]["name"])
-    console.log(data[teddy]["price"])
-    }
-})
-.catch(error => alert("Erreur : " + error));
+                displayCatalogue.appendChild(teddySection)
+                /* creation */
+               
+                let name = document.createElement('h4')
 
+                /************** 
+                .then(res => res.json())
+        .then(res => {*/
+                teddySection.classList.add('teddyname')
+               
+                name.classList.add('teddy_name')
 
+                /******************* */
+                name.textContent = this.name
 
+                /******************** */
+               
+                teddySection.appendChild(name)
+                displayCatalogue.appendChild(teddySection)
+   /*     )
+            }*/
+                console.log(data[teddy]["name"])
+/********************
+                console.log(data[teddy]["imageUrl"])
+                console.log(data[teddy]["name"])
+                console.log(data[teddy]["price"])
+                */
+            }
+        }
+    )
+ }
 
-
-
-
-var parent = document.createElement("div")//div1
-var p = document.createElement("p")
-parent.append('je rajoute du texte dans le paragraphe')
-var p1 = document.createElement('p')
-parent.append('texte p1')
-x.append(parent)
-/***/
-var parent1 = document.createElement('div')//div2
-parent.append(parent1)
-var p2 = document.createElement('p')
-parent1.append('texte p2 dans nouvelle div')
-
-}
-
-
+ 
