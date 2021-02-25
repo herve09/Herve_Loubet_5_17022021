@@ -26,10 +26,10 @@ window.onload = function get_body() {
                     description.classList.add('teddy_description')
                     link.classList.add('teddy_link')
 
-                    img.src = res[i].img
+                    img.src = res[i].imageUrl
                     
                     name.textContent = res[i].name
-                    price.textContent = res[i].price 
+                    price.textContent = res[i].price + " €"
                     description.content = res[i].description
                     link.href="./pages.teddy.html?id=" + res[i].id 
                     link.textContent = "Plus de détail"

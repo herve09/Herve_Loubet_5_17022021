@@ -3,13 +3,38 @@ body {
   background-color: green;
 }
 
+#catalogueteddy {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  color: black;
+}
+
 section {
   margin-right: 15px;
   margin-bottom: 15px;
-  background-color: blue;
-}
-
-img.teddy_img {
-  border: 1px solid red;
+  margin-left: 15px;
+  background-color: #b7b7b9;
   width: 250px;
+  text-align: center;
+}
+section .h4.teddy_name {
+  margin: 10px;
+  font-size: 1.5rem;
+  margin: 10px;
+}
+section img.teddy_img {
+  border: 1px solid red;
+  width: 100%;
+}
+section .teddy_price {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin: 10px;
+}
+section .teddy_description {
+  font-size: 1rem;
+}
+section .teddy_link {
+  font-size: 1rem;
 }/*# sourceMappingURL=style.css.map */
