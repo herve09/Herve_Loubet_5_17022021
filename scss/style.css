@@ -1,0 +1,15 @@
+body {
+  width: 100%;
+  background-color: green;
+}
+
+section {
+  margin-right: 15px;
+  margin-bottom: 15px;
+  background-color: blue;
+}
+
+img.teddy_img {
+  border: 1px solid red;
+  width: 250px;
+}/*# sourceMappingURL=style.css.map */
