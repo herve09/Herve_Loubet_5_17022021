@@ -16,6 +16,7 @@ section {
     margin-left: 15px;
     background-color: rgb(183, 183, 185);
     width: 250px;
+    
     text-align: center;
 
     .h4.teddy_name {
@@ -28,6 +29,7 @@ img.teddy_img {
     
     border: 1px solid red;
     width: 100%;
+    height: 10rem;
 }
 .teddy_price {
     font-size: 1.5rem;
@@ -37,10 +39,34 @@ img.teddy_img {
 
 .teddy_description {
     font-size: 1rem;
+    margin: 5px;
 }
 
 .teddy_link {
     font-size: 1rem;
     
 }
+
+button.teddy_ajoutpanier {
+    width: 200px;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: solid 2px;
+    border-radius: 10px;
+    
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-shadow: 0px 2px 2px 0px #838282;
+}
+}
+/**page panier****************panier***************/
+section.Sectionpanier {
+    display: flex;
+
+
+
+
+
 }
