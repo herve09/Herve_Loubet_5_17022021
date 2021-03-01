@@ -27,19 +27,20 @@ console.log('bonjour')
                             let color = document.createElement('p')
                             let quant = document.createElement('p')
                             let pu = document.createElement('p')
-                            let totml = document.createElement('p')
-console.log()
+                            let total = document.createElement('p')
+
 
         if(i < res.length){
-            img.src = 
+            img.src = res[i].img
             name.textContent = res[i].name
             color.textContent = res[i].color
             quant.textContent = res[i].quant
             pu.textContent = res[i].pu/100 + " €"
-            total.textContent = res[i].total
+         /**  total.textContent = res[i].total */
 
 
         }
+        console.log()
                             /**
 
                             
