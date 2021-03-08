@@ -18,14 +18,16 @@ console.log('bonjour')
                             let price = document.createElement('p')
                             let description = document.createElement('p')
                             let link = document.createElement('a')
-                            
+                           let colors = document.createElement('colors')
 
                             teddyArticle.classList.add('teddyArticle')
-                            img.classList.add('teddy_img')
-                            name.classList.add('teddy_name')
-                            price.classList.add('teddy_price')
-                            description.classList.add('teddy_description')
-                            link.classList.add('teddy_link')
+                            img.classList.add('img')
+                            name.classList.add('name')
+                            price.classList.add('price')
+                           /* description.classList.add('description')*/
+                            link.classList.add('link')
+                            /*colors.classList.add('colors')*/
+                            
                            
                             img.src = res[i].imageUrl
 
@@ -33,18 +35,22 @@ console.log('bonjour')
 
                             price.textContent = res[i].price / 100 + " €"
 
-                            description.textContent = res[i].description
+                           /* description.textContent = res[i].description*/
+
+                            
                             link.href = "./article.html?id=" + res[i]._id
                             link.textContent = "Plus de détail"
-                           
+
+                           /* colors.textContent = res[i].colors*/
+
 
 
                             teddyArticle.appendChild(img)
                             teddyArticle.appendChild(name)
                             teddyArticle.appendChild(price)
-                            teddyArticle.appendChild(description)
+                          teddyArticle.appendChild(description)
                             teddyArticle.appendChild(link)
-                           
+                           teddyArticle.appendChild(colors)
  
                             displayCatalogue.appendChild(teddyArticle)
 

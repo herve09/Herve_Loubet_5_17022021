@@ -1,63 +1,104 @@
+console.log('bonjour')
 
-const queryString_url_id = window.location.search
- console.log(queryString_url_id)   
- 
- fetch("http://localhost:3000/api/teddies/" + queryString_url_id)
- const leid = queryString_url_id.slice(4)
- console.log(leid)
- .then(res => res.json())
-   .then(res => {
-      for (let i = 0; i < res.length; i++) {
-             let displayCatalogue = document.getElementById('catalogueteddy')
-             let teddyArticle = document.createElement('article')
+/*const Base_URL = "http://localhost:3000/api/teddies/" + idProduit*/
+/*
+window.onload = function get_body() {
 
+  var x = document.getElementsByTagName("body")[0]
+**/
+    let params = new URL(document.location).searchParams
+    let idProduit = params.get('id')
+console.log(idProduit)
+
+
+    fetch("http://localhost:3000/api/teddies/" + idProduit)
+    .then(res => res.json())
+      .then(res => { console.log(res)
+     
+           let displayProduit = document.getElementById('produit')
+            let teddyArticle = document.createElement('article')
+
+            let img = document.createElement('img')
+            let name = document.createElement('h4')
+            let price = document.createElement('p')
+            let description = document.createElement('p')
+          let selec_colors = document.createElement('select')
+          let colors = document.createElement('colors') /**dimanche */
+
+            teddyArticle.classList.add('teddyArticle')
+            img.classList.add('img')
+            name.classList.add('name')
+            price.classList.add('price')
+            description.classList.add('description')
+           selec_colors.classList.add('colors')
+           
+            img.src = res.imageUrl
+            name.textContent = res.name
+            price.textContent = res.price / 100 + " €"
+            description.textContent = res.description
+                  
+            teddyArticle.appendChild(img)
+            teddyArticle.appendChild(name)
+            teddyArticle.appendChild(price)
+            teddyArticle.appendChild(description)
+         teddyArticle.appendChild(selec_colors)
+           
+            displayProduit.appendChild(teddyArticle)
             
 
-             let img = document.createElement('img')
-             let name = document.createElement('h4')
-             let price = document.createElement('p')
-             let description = document.createElement('p')
-             let link = document.createElement('a')
-             
-
-             teddyArticle.classList.add('teddyArticle')
-             img.classList.add('teddy_img')
-             name.classList.add('teddy_name')
-             price.classList.add('teddy_price')
-             description.classList.add('teddy_description')
-             link.classList.add('teddy_link')
-            
-             img.src = res[i].imageUrl
-
-             name.textContent = res[i].name
-
-             price.textContent = res[i].price / 100 + " €"
-
-             description.textContent = res[i].description
-             link.href = "./article.html?id=" + res[i]._id
-             link.textContent = "Plus de détail"
-            
+         /* }*/
+         
+         /*for(let j = 0; j < ours[i].colors[j].length; j++)*/
+        for(let i = 0; i < res.colors.length; i++)
+                { 
 
 
-             teddyArticle.appendChild(img)
-             teddyArticle.appendChild(name)
-             teddyArticle.appendChild(price)
-             teddyArticle.appendChild(description)
-             teddyArticle.appendChild(link)
-            
+          let colorOption = document.createElement("option")
+          colorOption.setAttribute('value', colors[i].length)
+          colorOption.innerHTML = colors[i]
+          choixColor.append(colorOption)
+          let choixColor = document.createElement('select')
 
-             
-
-            
-           }
-    
+        
+          /* document.getElementById('selec_colors').options[0] */
+       
+           console.log('option_colors')
 
 
-   }
-     )
 
- /*    
+        }
+      } /*****/
+      )
+      /*
+
+ (value je crois) res.colors[i] et tu appendChild dans ton select d'avant
+
+
+} */
+/*
+function getColors() {
+  return new Promise((resolve, eject) => {
+  fetch ("http://localhost:3000/api/teddies/" + idProduit)
+    .then(data => data.json()) 
+    .then(colors => {
+      console.log(colors)
+      resolve(colors)
+    })
+.catch(err => {
+  reject(err)
+  errDiv.inerText = "Impossible de récupérer la couleur"
+})
+  })
 }
+
+getColors().then(data => {
+  let option
+  object.entries(data.colors).forEach(colors => {
+    
+  
+    console.log(colors)
+  })
+})
 */
 
 
@@ -65,67 +106,17 @@ const queryString_url_id = window.location.search
 
 
 
+   /*  for (let colors = 0; colors < res[colors].length; colors++) {
+          let teddyArticle = document.createElement('article')
+          let color = document.createElement('p')
 
+          teddyArticle.classList.add('teddyArticle')
+          color.classList.add('color')
 
+            
+          color.textContent = res.color
 
+     teddyArticle.appendChild(color)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /*
- const leid = queryString_url_id.slice(4)
- console.log(leid)
-*/
-/*
-let params = (new URL(document.location)).searchParams
-
-
-
-
-
-let name = params.get('name')
-
-
-
-let imageurl = params.get('img')
-let description = params.get('desciption')
-let color = params.get('couleur')
-let price = params.get('prix')
-*/
-/*
-teddySection.classList.add('teddySection')
-name.classList.add('teddy_name')
-
-img.classList.add('teddy_img')
-
-
-
-
-price.classList.add('teddy_price')
-description.classList.add('teddy_description')
-
-
-name.textContent = res[i].name
-name.classList.add('teddy_name')
-
-teddyArticle.appendChild(name)
-
-console.log(params)
-*/
-
-
-                    
-
+console.log(colors)
+        } */
