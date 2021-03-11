@@ -14,7 +14,7 @@ console.log('bonjour')
                            
 
                             let img = document.createElement('img')
-                            let name = document.createElement('h4')
+                            let name = document.createElement('h3')
                             let price = document.createElement('p')
                             let description = document.createElement('p')
                             let link = document.createElement('a')

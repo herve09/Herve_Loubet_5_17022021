@@ -1,47 +1,61 @@
 console.log('bonjour')
 
-        window.onload = function get_body() {
+window.onload = function get_body() {
 
-            var x = document.getElementsByTagName("body")[0]
+  var x = document.getElementsByTagName("body")[0]
 
-            fetch("http://localhost:3000/api/teddies")
-                .then(res => res.json())
-                  .then(res => {
-                     for (let i = 0; i < res.length; i++) {
-                            let displayPanier = document.getElementById('panierteddy')
-                            let teddySection = document.createElement('section')
-
-
-                            let ligne = document.createElement('tr')
-
-                            let imageCell = document.createElement('td')
-                            let nameCell = document.createElement('td')
-                            let colorCell = document.createElement('td')
-                            let quantCell = document.createElement('td')
-                            let puCell = document.createElement('td')
-                            let totalCell = document.createElement('td')
+  fetch("http://localhost:3000/api/teddies")
+    .then(res => res.json())
+    .then(res => {
+      for (let i = 0; i < res.length; i++) {
+        let displayPanier = document.getElementById('panierteddy')
+        let teddySection = document.createElement('section')
 
 
-                            let img = document.createElement('img')
-                            let name = document.createElement('p')
-                            let color = document.createElement('p')
-                            let quant = document.createElement('p')
-                            let pu = document.createElement('p')
-                            let total = document.createElement('p')
+        let ligne = document.createElement('tr')
+
+        let imageCell = document.createElement('td')
+        let nameCell = document.createElement('td')
+        let colorCell = document.createElement('td')
+        let quantCell = document.createElement('td')
+        let puCell = document.createElement('td')
+        let totalCell = document.createElement('td')
 
 
-        if(i < res.length){
-            img.src = res[i].img
-            name.textContent = res[i].name
-            color.textContent = res[i].color
-            quant.textContent = res[i].quant
-            pu.textContent = res[i].pu/100 + " €"
-         /**  total.textContent = res[i].total */
+        let img = document.createElement('img')
+        let name = document.createElement('p')
+        let color = document.createElement('p')
+        let quant = document.createElement('p')
+        let pu = document.createElement('p')
+        let total = document.createElement('p')
+
+
+        if (i < res.length) {
+          img.src = res[i].img
+          name.textContent = res[i].name
+          color.textContent = res[i].color
+          quant.textContent = res[i].quant
+          pu.textContent = res[i].pu / 100 + " €"
+          /**  total.textContent = res[i].total */
 
 
         }
         console.log()
-                            /**
+       
+        displayPanier.appendChild(teddySection)
+        /** */
+
+        console.log()
+      }
+
+
+
+    })
+
+
+}
+
+ /**
 
                             
                           
@@ -64,15 +78,3 @@ console.log('bonjour')
                             teddySection.appendChild(name)
                             teddySection.appendChild(price)
                            */
-                           
-                            displayPanier.appendChild(teddySection)
-                          /** */
-                        }
-                 
-
-
-                }
-                  )
-         
-                  
-            }

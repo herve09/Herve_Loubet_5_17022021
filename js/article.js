@@ -5,71 +5,119 @@ console.log('bonjour')
 window.onload = function get_body() {
 
   var x = document.getElementsByTagName("body")[0]
+const url ='http://localhost:3000/api/teddies/'
+
+  const BASKET = Json.parse(localstorage.getItem('teddys')) || []
 **/
-    let params = new URL(document.location).searchParams
-    let idProduit = params.get('id')
+
+
+
+console.log()
+
+
+let params = new URL(document.location).searchParams
+let idProduit = params.get('id')
 console.log(idProduit)
 
 
-    fetch("http://localhost:3000/api/teddies/" + idProduit)
-    .then(res => res.json())
-      .then(res => { console.log(res)
-     
-           let displayProduit = document.getElementById('produit')
-            let teddyArticle = document.createElement('article')
-
-            let img = document.createElement('img')
-            let name = document.createElement('h4')
-            let price = document.createElement('p')
-            let description = document.createElement('p')
-          let selec_colors = document.createElement('select')
-          let colors = document.createElement('colors') /**dimanche */
-
-            teddyArticle.classList.add('teddyArticle')
-            img.classList.add('img')
-            name.classList.add('name')
-            price.classList.add('price')
-            description.classList.add('description')
-           selec_colors.classList.add('colors')
-           
-            img.src = res.imageUrl
-            name.textContent = res.name
-            price.textContent = res.price / 100 + " €"
-            description.textContent = res.description
-                  
-            teddyArticle.appendChild(img)
-            teddyArticle.appendChild(name)
-            teddyArticle.appendChild(price)
-            teddyArticle.appendChild(description)
-         teddyArticle.appendChild(selec_colors)
-           
-            displayProduit.appendChild(teddyArticle)
-            
-
-         /* }*/
-         
-         /*for(let j = 0; j < ours[i].colors[j].length; j++)*/
-        for(let i = 0; i < res.colors.length; i++)
-                { 
-
-
-          let colorOption = document.createElement("option")
-          colorOption.setAttribute('value', colors[i].length)
-          colorOption.innerHTML = colors[i]
-          choixColor.append(colorOption)
-          let choixColor = document.createElement('select')
-
-        
-          /* document.getElementById('selec_colors').options[0] */
-       
-           console.log('option_colors')
+fetch("http://localhost:3000/api/teddies/" + idProduit)
+  .then(res => res.json())
+  .then(res => {
+    console.log(res)
 
 
 
-        }
-      } /*****/
-      )
-      /*
+    /**
+         let link = document.createElement('a')
+link.classList.add('link')
+link.href = "./article.html?id=" + res[i]._id
+                            link.textContent = "Plus de détail"
+teddyArticle.appendChild(link)
+         */
+
+    let displayProduit = document.getElementById('produit')
+    let teddyArticle = document.createElement('article')
+
+    let img = document.createElement('img')
+    let name = document.createElement('h3')
+    let price = document.createElement('p')
+    let description = document.createElement('p')
+    let selec_colors = document.createElement('select')
+    let colors = document.createElement('colors')
+    let ajoutpanier = document.createElement('a')
+
+    teddyArticle.classList.add('teddyArticle')
+    img.classList.add('img')
+    name.classList.add('name')
+    price.classList.add('price')
+    description.classList.add('description')
+    selec_colors.classList.add('colors')
+    ajoutpanier.classList.add('ajoutpanier')
+
+    img.src = res.imageUrl
+    name.textContent = res.name
+    price.textContent = res.price / 100 + " €"
+    description.textContent = res.description
+
+    ajoutpanier.href = "./validation.html"
+    ajoutpanier.textContent = "Plus de détail"
+
+
+
+    teddyArticle.appendChild(img)
+    teddyArticle.appendChild(name)
+    teddyArticle.appendChild(price)
+    teddyArticle.appendChild(description)
+    teddyArticle.appendChild(ajoutpanier)
+
+    displayProduit.appendChild(teddyArticle)
+
+
+    let choixColor = document.createElement('select')
+    choixColor.setAttribute('name', 'color')
+    teddyArticle.appendChild(choixColor)
+
+    for (let i = 0; i < res.colors.length; i++) {
+
+
+      let colorOption = document.createElement("option")
+      colorOption.setAttribute('value', res.colors[i])
+      colorOption.innerHTML = res.colors[i]
+
+      choixColor.append(colorOption)
+    }
+    console.log('choixColor')
+
+
+  } /*****/ )
+/********************recup donnees bouton***************************************
+document.getElementById('ajout')
+addEventListener('click', ajoutPanier)
+console.log()*/
+
+function panierteddy() {
+  let ajoutpanier = document.querySelectorAll('plus')
+  for (add of ajoutpanier) {
+    add.addEventListener('click', event => {
+
+      baskets[event.target.id].qte++;
+      localStorage.setItem(0, JSON.stringify(baskets));
+      location.reload();
+    })
+  }
+}
+
+
+  
+
+console.log(ajoutpanier)
+
+
+
+
+/*
+
+document.getElementById('ajout').immerHTML = 'Ajouter au panier'
 
  (value je crois) res.colors[i] et tu appendChild dans ton select d'avant
 
@@ -106,7 +154,7 @@ getColors().then(data => {
 
 
 
-   /*  for (let colors = 0; colors < res[colors].length; colors++) {
+/*  for (let colors = 0; colors < res[colors].length; colors++) {
           let teddyArticle = document.createElement('article')
           let color = document.createElement('p')
 
