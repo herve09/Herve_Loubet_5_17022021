@@ -16,7 +16,7 @@ console.log('bonjour')
                             let img = document.createElement('img')
                             let name = document.createElement('h3')
                             let price = document.createElement('p')
-                            let description = document.createElement('p')
+                           let description = document.createElement('p')
                             let link = document.createElement('a')
                            let colors = document.createElement('colors')
 
@@ -24,7 +24,7 @@ console.log('bonjour')
                             img.classList.add('img')
                             name.classList.add('name')
                             price.classList.add('price')
-                           /* description.classList.add('description')*/
+                         description.classList.add('description')
                             link.classList.add('link')
                             /*colors.classList.add('colors')*/
                             
@@ -35,7 +35,7 @@ console.log('bonjour')
 
                             price.textContent = res[i].price / 100 + " €"
 
-                           /* description.textContent = res[i].description*/
+                       description.textContent = res[i].description
 
                             
                             link.href = "./article.html?id=" + res[i]._id
@@ -48,7 +48,7 @@ console.log('bonjour')
                             teddyArticle.appendChild(img)
                             teddyArticle.appendChild(name)
                             teddyArticle.appendChild(price)
-                          teddyArticle.appendChild(description)
+                     teddyArticle.appendChild(description)
                             teddyArticle.appendChild(link)
                            teddyArticle.appendChild(colors)
  

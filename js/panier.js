@@ -55,12 +55,9 @@ window.onload = function get_body() {
 
 }
 
+
+
  /**
-
-                            
-                          
-                           
-
                             teddySection.classList.add('Sectionpanier')
                             img.classList.add('teddy_img')
                             name.classList.add('teddy_name')

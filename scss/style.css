@@ -3,6 +3,14 @@ body {
   background-color: #fafcfa;
 }
 
+a {
+  text-decoration: none;
+}
+
+h1 {
+  padding-left: 10px;
+}
+
 #catalogueteddy,
 #produit {
   display: flex;
@@ -11,33 +19,45 @@ body {
   color: black;
 }
 
-article.teddyArticle {
-  margin-left: 10px;
-  margin-right: 10px;
-  padding-bottom: 20px;
-}
-
 article {
+  position: relative;
   margin-right: auto;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
   margin-left: auto;
   width: 100%;
   text-align: center;
+}
+article h1 {
+  padding-left: 20px;
 }
 article h3.name {
   text-align: left;
   padding-left: 30px;
   font-size: 1.5rem;
 }
+article .ajoutpanier {
+  position: absolute;
+  font-size: 1.3rem;
+  color: #000;
+  border-radius: 10px;
+  background-color: #a7a7a7;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0px 5px 5px 0px #222222;
+}
 article img.img {
   top: 0px;
-  left: -10px;
+  left: 0px;
   position: relative;
-  border: 1px solid red;
-  width: 100%;
-  height: 16rem;
-  -o-object-fit: contain;
-     object-fit: contain;
+  box-shadow: 2px 2px 2px 2px #222222;
+  border-radius: 5px;
+  width: 90%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 article .price {
   font-size: 1.5rem;
@@ -48,36 +68,39 @@ article .price {
   padding-right: 50px;
 }
 article .description {
-  font-size: 1rem;
+  font-size: 1.2rem;
   position: relative;
   top: -50px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 article select {
   position: relative;
-  top: -30px;
+  top: -50px;
   font-size: 1.2rem;
 }
 article .link {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: #000;
-}
-
-#ajout {
-  width: 200px;
-  height: 50px;
-  font-size: 1.5rem;
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border: solid 2px;
-  border-radius: 10px;
+  position: relative;
+  top: -30px;
   background-color: #a7a7a7;
   border-radius: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
   padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
   box-shadow: 0px 5px 5px 0px #222222;
 }
 
-/**page panier****************panier***************/
+#catalogueteddy .teddyArticle p.description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/**page panier*****************panier***************/
 .card-produit {
   display: flex;
   flex-direction: column;
