@@ -2,6 +2,13 @@ body {
     width: 100%;
     background-color: rgb(250, 252, 250);
 }
+a {
+    text-decoration: none;
+}
+
+h1 { 
+    padding-left: 10px;
+}
 
 #catalogueteddy,
 #produit {
@@ -11,19 +18,22 @@ body {
     color: rgb(0, 0, 0);
 
 }
-article.teddyArticle {
-    margin-left: 10px;
-    margin-right: 10px;
-    padding-bottom: 20px;
-}
+
+
 article {
+    position: relative;
+
     margin-right: auto;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     margin-left: auto;
 
     width: 100%;
 
     text-align: center;
+
+    h1 { 
+        padding-left: 20px;
+    }
 
     h3.name {
         text-align: left;
@@ -31,67 +41,100 @@ article {
         font-size: 1.5rem;
     }
 
-
-img.img {
-    top: 0px;
-    left: -10px;
-    position: relative;
-    border: 1px solid red;
-    width: 100%;
-    height: 16rem;
-    object-fit: contain;
-}
-
-.price {
-    font-size: 1.5rem;
-    font-weight: 900;
-   
-    position: relative;
-    top: -45px;
-    text-align: right;
-    padding-right: 50px;
-}
-
-.description {
-    font-size: 1rem;
-    position: relative;
-    top: -50px;
-}
-select {
-    position: relative;
-    top: -30px;
-    font-size: 1.2rem;
-}
-
- 
-
-.link {
-    font-size: 1.2rem;
-    color: #000;
-
-}
-
-
-
-}
-
-#ajout {
-    width: 200px;
-    height: 50px;
-    font-size: 1.5rem;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border: solid 2px;
-    border-radius: 10px;
-    background-color: rgb(167, 167, 167);
-    border-radius: 10px;
+    #ajoutpanier {
+        position: absolute;
+        font-size: 1.3rem;
+        color: #000;
+        border-radius: 10px;
+        background-color: rgb(167, 167, 167);
+       
+        padding-left: 15px;
+        padding-right: 15px;
     padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+        box-shadow: 0px 5px 5px 0px #222222;
+    }
+
+
+
+
+    img.img {
+        top: 0px;
+        left: 0px;
+        position: relative;
+        box-shadow:2px 2px 2px 2px #222222;
+        border-radius: 5px;
+        width: 90%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .price {
+        font-size: 1.5rem;
+        font-weight: 900;
+
+        position: relative;
+        top: -50px;
+        text-align: right;
+        padding-right: 50px;
+    }
+
+    .description {
+        font-size: 1.2rem;
+        position: relative;
+        top: -50px;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
    
-    box-shadow: 0px 5px 5px 0px #222222;
+
+    select {
+        position: relative;
+        top: -50px;
+        font-size: 1.2rem;
+    }
+
+
+   .link {
+        font-size: 1.3rem;
+        color: #000;
+        position: relative;
+        top: -30px;
+        background-color: rgb(167, 167, 167);
+        border-radius: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+        box-shadow: 0px 5px 5px 0px #222222;
+
+    }
+
+
+
 }
 
-/**page panier****************panier***************/
+#catalogueteddy {
+
+    .teddyArticle {
+ 
+        p.description {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+}
+}
+
+
+
+
+
+/**page panier*****************panier***************/
 .card-produit {
     display: flex;
     flex-direction: column;
