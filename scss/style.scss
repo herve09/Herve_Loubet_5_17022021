@@ -42,12 +42,17 @@ article {
     }
 
     #ajoutpanier {
-        position: absolute;
+        position: relative;
         font-size: 1.3rem;
         color: #000;
+
+
         border-radius: 10px;
         background-color: rgb(167, 167, 167);
-       
+       display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 35%;
         padding-left: 15px;
         padding-right: 15px;
     padding-top: 10px;
@@ -61,7 +66,7 @@ article {
 
     img.img {
         top: 0px;
-        left: 0px;
+        left: -10px;
         position: relative;
         box-shadow:2px 2px 2px 2px #222222;
         border-radius: 5px;
@@ -85,15 +90,16 @@ article {
         position: relative;
         top: -50px;
         margin-left: 5px;
-        margin-right: 5px;
+        margin-right: 15px;
     }
 
    
 
     select {
         position: relative;
-        top: -50px;
+        top: -100px;
         font-size: 1.2rem;
+        background-color: rgb(238, 237, 225);
     }
 
 

@@ -29,7 +29,7 @@ fetch("http://localhost:3000/api/teddies/" + idProduit)
   .then(res => {
     console.log(res)
 
-
+    
 
     /**
          let link = document.createElement('a')
@@ -97,27 +97,109 @@ teddyArticle.appendChild(link)
     }
     console.log('choixColor')
 
+    /** soluce antony
+    ajoutpanier = document.getDocumentById("ajoutpanier")
+
+    ajoutpanier.addEventListener(click, function() {
+      
+    ajoutpanier.getDocumentById('name')
+    ajoutpanier.getDocumentById('prix')
+    }
+    
+    )
+    console.log()
+
+    */
+   
+/******** */
+
+//test 
+//declaration variable produitLocalStorage--je recupere article qui contient les données
+let article = json.parse(localStorage.getDocumentById(article)) 
+
+//si produit enregsitrés dans le localStorage
+
+if(article) {
+
+}
+
+//pas de produit enregistrés
+else {
+  article = [] //creation tableau array
+  article.push(article) 
+
+  console.log(article)
+
+}
+
+
+
+
+
+/******** */
+
+
 
   } /*****/ )
-/********************recup donnees bouton***************************************
-document.getElementById('ajout')
+
+ 
+
+} //fin window-fin window
+
+/**
+ajoutpanier = document.getDocumentById("ajoutpanier")
+
+ajoutpanier.addEventListener("click", function() {
+localStorage.setItem(id, json.stringify(color))
+})
+**/
+
+/********************recup donnees bouton*************************************
+//declaration variable produitLocalStorage--je recupere article qui contient les données
+let article = json.parse(localStorage.getDocumentById(article)) 
+
+//si produit enregsitrés dans le localStorage
+
+if(article) {
+
+}
+
+//pas de produit enregistrés
+else {
+  article = [] //creation tableau array
+  article.push(article) 
+
+  console.log(article)
+
+}
+***/
+
+
+/********************recup donnees bouton****************************************/
+/********************recup donnees bouton****************************************/
+
+
+/*document.getElementById('ajout')
 addEventListener('click', ajoutPanier)
 console.log()*/
 
 /**info mentor 
-style ajoutpanier = document.getDocumentById("ajoutpanier")
+
+ajoutpanier = document.getDocumentById("ajoutpanier")
+
 ajoutpanier.addEventListener(click, function() {
-
-
-
+  
+ajoutpanier.getDocumentById('name')
+ajoutpanier.getDocumentById('prix')
 }
 
 )
-
 console.log()
 */
+
+
 /**fin info */
-} //fin window-fin window
+
 
 
 /*
@@ -174,23 +256,3 @@ getColors().then(data => {
   })
 })
 */
-
-
-
-
-
-
-/*  for (let colors = 0; colors < res[colors].length; colors++) {
-          let teddyArticle = document.createElement('article')
-          let color = document.createElement('p')
-
-          teddyArticle.classList.add('teddyArticle')
-          color.classList.add('color')
-
-            
-          color.textContent = res.color
-
-     teddyArticle.appendChild(color)
-
-console.log(colors)
-        } */

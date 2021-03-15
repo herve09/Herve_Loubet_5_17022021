@@ -26,7 +26,7 @@ console.log('bonjour')
                             price.classList.add('price')
                          description.classList.add('description')
                             link.classList.add('link')
-                            /*colors.classList.add('colors')*/
+                           colors.classList.add('colors')/**/
                             
                            
                             img.src = res[i].imageUrl
