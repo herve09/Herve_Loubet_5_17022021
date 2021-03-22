@@ -25,8 +25,8 @@ window.onload = function get_body() {
         let img = document.createElement('img')
         let name = document.createElement('p')
         let color = document.createElement('p')
-        let quant = document.createElement('p')
-        let pu = document.createElement('p')
+        let quantite = document.createElement('p')
+        let price = document.createElement('p')
         let total = document.createElement('p')
 
 
@@ -34,7 +34,7 @@ window.onload = function get_body() {
           img.src = res[i].img
           name.textContent = res[i].name
           color.textContent = res[i].color
-          quant.textContent = res[i].quant
+          quantite.textContent = res[i].quantite
           pu.textContent = res[i].pu / 100 + " €"
           /**  total.textContent = res[i].total */
 

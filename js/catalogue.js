@@ -4,7 +4,10 @@ console.log('bonjour')
 
             var x = document.getElementsByTagName("body")[0]
 
-            fetch("http://localhost:3000/api/teddies")
+            
+            const URL = `http://localhost:3000/api/teddies`
+
+            fetch(URL)/* ("http://localhost:3000/api/teddies")*/
                 .then(res => res.json())
                   .then(res => {
                      for (let i = 0; i < res.length; i++) {
