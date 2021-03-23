@@ -1,16 +1,28 @@
-console.log('bonjour')
-
 window.onload = function get_body() {
 
   var x = document.getElementsByTagName("body")[0]
+ 
+let idproduit = document.createElement('idproduit')
 
-  fetch("http://localhost:3000/api/teddies")
+console.log(idproduit)
+  
+}
+
+
+
+
+
+
+
+
+
+
+/* fetch("http://localhost:3000/api/teddies")
     .then(res => res.json())
     .then(res => {
       for (let i = 0; i < res.length; i++) {
         let displayPanier = document.getElementById('panierteddy')
         let teddySection = document.createElement('section')
-
 
         let ligne = document.createElement('tr')
 
@@ -21,7 +33,6 @@ window.onload = function get_body() {
         let puCell = document.createElement('td')
         let totalCell = document.createElement('td')
 
-
         let img = document.createElement('img')
         let name = document.createElement('p')
         let color = document.createElement('p')
@@ -30,20 +41,23 @@ window.onload = function get_body() {
         let total = document.createElement('p')
 
 
+
+
+        
         if (i < res.length) {
           img.src = res[i].img
           name.textContent = res[i].name
           color.textContent = res[i].color
           quantite.textContent = res[i].quantite
           pu.textContent = res[i].pu / 100 + " €"
-          /**  total.textContent = res[i].total */
+       total.textContent = res[i].total 
 
 
         }
         console.log()
        
         displayPanier.appendChild(teddySection)
-        /** */
+      
 
         console.log()
       }
@@ -52,8 +66,8 @@ window.onload = function get_body() {
 
     })
 
+**/
 
-}
 
 
 

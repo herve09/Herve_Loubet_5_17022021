@@ -42,7 +42,7 @@ console.log('bonjour')
 
                             
                             link.href = "./article.html?id=" + res[i]._id
-                            link.textContent = "Plus de détail"
+                            link.textContent = "Acheter ce produit"
 
                            /* colors.textContent = res[i].colors*/
 
