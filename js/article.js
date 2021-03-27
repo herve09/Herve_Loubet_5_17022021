@@ -25,6 +25,8 @@ window.onload = function get_body() {
       let ajoutpanier = document.createElement('a')
       let newqty  = document.createElement('p')//
 
+    
+
       teddyArticle.classList.add('teddyArticle')
       img.classList.add('img')
       name.classList.add('name')
@@ -67,7 +69,7 @@ window.onload = function get_body() {
 
       }
 
-      /********************* vu avec antony */
+      /** ajouter au panier vu avec antony */
 
       let addtocart = document.getElementById('ajoutpanier')
       console.log(addtocart)
@@ -85,19 +87,98 @@ window.onload = function get_body() {
         for (key in Object.entries(localStorage)) {
           if (key == idProduit) {
             let product = localStorage.getItem(idProduit)
-            product += newQty
+            product[idProduit].quantite++ //a modifier pour avoit le + 6 pour code += newQty-- base
             localStorage.setItem(idProduit, product)
           } else {
             localStorage.setItem(idProduit, 1)
           }
         } //for entries fin
 
-      }) //addtocard fin
+      }) //addtocard fin antony
+      document.getElementById("ajoutpanier").addEventListener("click", () => {
+     //document.getElementById("ajoutpanier").onclick = function() {
+      document.getElementById("modalchoix").style.display = "block";
+  })
 
-    })//fetch fin
-
-/**creation modal redirection panier ou continuer achat */
-
-
+})//then fetch fin
 
 } //window fin 
+
+/** 
+//creation de la modale
+let afficherModalchoix = () => {
+
+  let positionElement1 = document.getElementById('modalChoix')
+
+let modalchoix = `
+<div class="modalcontainer" id="modalchoix">
+<div class="modalachat"><a href="index.html">Continuez vos achats</a></div>
+<div class="modalpanier"><a href="panier.html">Voir votre panier</a></div>
+</div>
+ `
+//injection html
+positionElement1.insertAdjancentHTML('afterend', modalchoix)
+console.log(afficherModalchoix)
+}
+
+//affichage modalchoix
+//afficherModalchoix()
+console.log(afficherModalchoix)
+ }) //addtocard fin
+*/
+
+
+    
+
+
+
+
+/**fin vu avec antony seul apres replacer le } addtocart fin */
+
+/**creation pop up */
+  /**creation structure html du pop up 
+  let modalchoix = document.createElement('modalchoix')
+  let modalachat = document.createElement('a')
+  let modalpanier = document.createElement('a')
+ 
+
+TeddyArticle.appendChild(modalchoix)
+modalchoix.appendChild(modalachat)
+modalchoix.appendChild(modalpanier)
+
+teddyArticle.classList.add('teddyArticle')
+modalChoix.classList.add('modalchoix')
+modalAchat.classList.add('modalachat')
+modalPanier.classList.add('modalpanier')
+console.log()
+ */
+
+      /**creation modal redirection panier ou continuer achat 
+
+//modalachat.textContent = '<a href="index.html">Continuez vos achats</a>'
+//modalpanier.textContent = '<a href="parnier.html">Consultez votre panier</a>'
+
+
+ajoutpanier.addEventListener('DOMContentLoaded', function()  {
+  let modalchoix = document.createElement('modalchoix')
+let modalachat = document.createElement('a')
+let modalpanier = document.createElement('a')
+
+//modalchoix.appendChild(modalachat)
+//modalchoix.appendChild(modalpanier)
+
+modalachat.textContent = '<a href="index.html">Continuez vos achats</a>'
+modalpanier.textContent = '<a href="parnier.html">Consultez votre panier</a>'
+
+  var elems = document.querySelectorAll('modalchoix')
+  var instances = M.Modal.init(modalachat, modalpanier)
+})
+
+$(document).ready(function(){
+  $('.modalchoix').modalchoix();
+});
+
+
+console.log(modalchoix)
+
+fin creation modal redirection panier ou continuer achat */
