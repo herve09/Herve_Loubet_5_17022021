@@ -17,6 +17,8 @@ h1 {
 .header {
   display: flex;
   flex-direction: column;
+  position: relative;
+  top: -20px;
 }
 .header .logo {
   display: flex;
@@ -37,7 +39,7 @@ h1 {
   display: flex;
   position: absolute;
   right: 15px;
-  top: 50px;
+  top: 35px;
 }
 .header .navmenu ul.listnav {
   display: flex;
@@ -52,9 +54,9 @@ h1 {
 /**fin menu*/
 /**texte intro**/
 .textintro {
-  margin-top: 20px;
+  margin-top: 0px;
   text-align: center;
-  background-color: #dfdfdf;
+  background-color: #e8e9e3;
   border-radius: 1rem;
   width: 90%;
   margin-left: auto;
@@ -187,7 +189,7 @@ article .description {
   font-size: 1.2rem;
   position: relative;
   top: -35px;
-  margin-left: 5px;
+  margin-left: 10px;
   margin-right: 15px;
 }
 article select {
@@ -221,6 +223,10 @@ article .link {
 main#produit {
   display: flex;
   flex-direction: column;
+  top: 65px;
+}
+main#produit h1 {
+  font-size: 1.5rem;
 }
 
 /**page panier*****************panier***************/
