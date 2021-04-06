@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./scss/style.css">
+  
+    <title>Document</title>
+</head>
+<body>
+    <h1>Notre panier</h1>
+    
+<!-- placeholer (texte exemple) pattern(caractere autorise)-->
+    <main id="form">
+<div class="blocprenom">
+        <label for="valideprenom" class="label">Prénom</label>
+        <input type="text" class="controlenomprenom" id="prenom" placeholder="" pattern="^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+))$" required="">
+    </div>
+
+    <div class="blocnom">
+<label for="validenom" class="label">Nom</label>
+<input type="text" class="controlenomprenom" id="nom" placeholder="" pattern="^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+))$" required="">
+</div>
+
+<div class="blocmail">
+    <label for="valideemail" class="label">Email</label>
+    <div class="input-group has-validation">
+        <span class="input-group-text" id="inputGroupPrepend">@</span>
+        <input type="text" class="form-control" id="email" placeholder="" aria-describedby="inputGroupPrepend" pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$" required="">
+    </div>
+
+
+<div class="bloccp">
+    <label for="validecp" class="label">Code postal</label>
+    <input type="text" class="form-control" id="cp" placeholder="" aria-describedby="inputGroupPrepend" pattern="^[0-9]$" required="">
+</div>
+
+
+<div class="blocville">
+    <label for="valideville" class="label">Ville</label>
+    <input type="text" class="form-control" id="ville" placeholder="" pattern="^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+)){1,10}$" required="">
+</div>
+
+
+
+</div>
+
+
+
+
+
+    </main>
+
+    
+    <script src="./js/panier.js"></script>
+</body>
+</html>

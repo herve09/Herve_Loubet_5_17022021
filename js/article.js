@@ -78,7 +78,7 @@ window.onload = function get_body() {
 
         let product = localStorage.getItem(idProduit)
 
-        localStorage.setItem(idProduit, 1)
+       localStorage.setItem(idProduit, 1)
 
         console.log(product)
 
@@ -87,8 +87,8 @@ window.onload = function get_body() {
         for (key in Object.entries(localStorage)) {
           if (key == idProduit) {
             let product = localStorage.getItem(idProduit)
-            product[idProduit].quantite++ //a modifier pour avoit le + 6 pour code += newQty-- base
-            localStorage.setItem(idProduit, product)
+            product += newQty     //[idProduit].quantite++ a modifier pour avoit le + - pour code += newQty-- base
+           localStorage.setItem(idProduit, product)
           } else {
             localStorage.setItem(idProduit, 1)
           }

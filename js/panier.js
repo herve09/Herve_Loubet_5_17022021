@@ -1,14 +1,46 @@
-console.log()
-window.onload = function get_body() {
+  console.log()
+  window.onload = function get_body() {
+  var x = document.getElementsByTagName("body")[0];
+  var addcart = document.getElementById('ajoutpanier');
+  console.log(addcart);
+  addcart.addEventListener('click',function() {
+  function allStorage() {
+  
+  var values = [];
+  var keys = Object.keys(localStorage);
+  var i = keys.length;
+  console.log(keys);
+  
+  while ( i-- ) {
+  values.push( localStorage.getItem(keys[i]) );
+  }
+  
+  return values;
+  }
+  var test = allStorage();
+  console.log(test[1]);
+  });
+  }
 
-  var x = document.getElementsByTagName("body")[0]
+
+
+/***
+function recupStorage() {
+  let objectEntries = localStorage.getItem('Object.entries')
+
+  document.getElementById('key').value = quantite
+console.log(key)
+}//function recupstorage
+
+} //window.onload
+
+  *********************copie article.js
 
   let params = new URL(document.location).searchParams
   let idProduit = params.get('id')
-  console.log(idProduit)
+ // console.log(idProduit)
 
-
-  fetch("http://localhost:3000/api/teddies/" + idProduit)
+ fetch(localStorage.data)//("http://localhost:3000/api/teddies/" + idProduit)
     .then(res => res.json())
     .then(res => {
       //console.log(res)
@@ -69,7 +101,7 @@ window.onload = function get_body() {
 
       }
 
-      /********************* ajouter au panier vu avec antony */
+      /********************* ajouter au panier vu avec antony 
 
       let addtocart = document.getElementById('ajoutpanier')
       console.log(addtocart)
@@ -108,8 +140,7 @@ window.onload = function get_body() {
 
 
 } //window fin 
-
-
+*/
 
 
 
@@ -215,4 +246,4 @@ window.onload = function get_body() {
                             teddySection.appendChild(img)
                             teddySection.appendChild(name)
                             teddySection.appendChild(price)
-                */
+              **/
