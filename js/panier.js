@@ -1,6 +1,32 @@
   console.log()
   window.onload = function get_body() {
-  var x = document.getElementsByTagName("body")[0];
+  var x = document.getElementsByTagName("body")[0]
+
+    var value = []
+    var keys = Object.keys(localStorage)
+    var i = keys.length
+    for(var key in keys) {
+      var idProduit = keys[key]
+      var qty = localStorage.getItem(keys[key])
+        console.log(idProduit+ "" + qty)
+    
+        fetch("http://localhost:3000/api/teddies/" + idProduit) //("https://ab-p5-api.herokuapp.com/api/teddies" + idproduit)
+        .then(res => res.json())
+        .then(res => {
+          price = res.price
+          total = parseInt(qty)*price
+          console.log(idProduit+ "" + total)
+    
+      })
+
+    }
+
+  }
+
+
+/***
+
+ ;
   var addcart = document.getElementById('ajoutpanier');
   console.log(addcart);
   addcart.addEventListener('click',function() {
@@ -24,7 +50,7 @@
 
 
 
-/***
+
 function recupStorage() {
   let objectEntries = localStorage.getItem('Object.entries')
 
