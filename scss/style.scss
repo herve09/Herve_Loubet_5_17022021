@@ -1,355 +1,343 @@
 body {
-    display: block;
-    width: 100%;
-    background-color: #fff;
+  display: block;
+  width: 100%;
+  background-color: #fff;
 }
 
 a {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
+  text-decoration: none;
+  color: rgb(0, 0, 0);
 }
 
 h1 {
-    padding-left: 10px;
+  padding-left: 10px;
 }
 
 /**menu**/
 .header {
-    display: flex;
-    flex-direction: column;
-    background-color: #e9ecd7;
-    position: relative;
-    margin-top: -10px;
-    right: 8px;
-   
+  display: flex;
+  flex-direction: column;
+  background-color: #e9ecd7;
+  position: relative;
+  margin-top: -10px;
+  right: 8px;
 
-    .logo {
-        display: flex;
+  .logo {
+    display: flex;
     justify-content: center;
     margin-top: -30px;
     margin-bottom: 0px;
-   
-    
+
     img.navbarimg {
-        margin-bottom: -50px;/****/
-        
+      margin-bottom: -50px; /****/
     }
+  }
 
-    }
-
-    ul.listnav {
-        display: flex;
-        justify-content: flex-end;
+  ul.listnav {
+    display: flex;
+    justify-content: flex-end;
     position: relative;
-        li {
-            text-decoration: none;
-            padding-right: 25px;
-            list-style: none;
-            
-        }
-
+    li {
+      text-decoration: none;
+      padding-right: 25px;
+      list-style: none;
     }
-
-
+  }
 }
 
 /**fin menu*/
 
 /**footer*/
 footer {
+  display: flex;
+  flex-direction: column;
+  background-color: #e9ecd7;
+
+  .infofooter,
+  .copyright {
     display: flex;
-    flex-direction: column;
-    background-color: #e9ecd7;
-
-
-    .infofooter,
-    .copyright {
-        display: flex;
-        justify-content: center;
-        font-size: 1.2rem;
-        flex-wrap: nowrap;
-        padding-top: 5px;
-        padding-bottom: 5px;
-    }
-
-
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-wrap: nowrap;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
 }
 
 /**fin footer*/
 /**texte intro**/
 
 .textintro {
-    margin-top: 12px;
-    text-align: center;
-    background-color: #e8e9e3;
-    border-radius: 1rem;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
+  margin-top: 12px;
+  text-align: center;
+  background-color: #e8e9e3;
+  border-radius: 1rem;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
 
+  h1 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding-top: 5px;
+    font-weight: 700;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
 
-
-    h1 {
-        font-size: 1.2rem;
-        font-weight: 500;
-        padding-top: 5px;
-        font-weight: 700;
-        padding-right: 10px;
-        padding-left: 10px;
-    }
-
-    .textpub {
-        font-size: 1rem;
-        padding-bottom: 10px;
-    }
+  .textpub {
+    font-size: 1rem;
+    padding-bottom: 10px;
+  }
 }
-
-
 
 #catalogueteddy,
 #produit {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    color: rgb(0, 0, 0);
-
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  color: rgb(0, 0, 0);
 }
 
 .modalcontainer {
-    top: 0;
+  top: 0;
+  position: relative;
+  width: 19rem;
+  height: 20rem;
+  /** top: -400px;*/
+  background-color: rgb(219, 219, 219);
+  /** display: block;**/
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+  display: none;
+  text-align: center;
+  border-radius: 1rem;
+  box-shadow: 1px 1px 1px 1px #222222;
+
+  h2 {
+    margin-top: 1rem;
+    padding: 10px;
+  }
+
+  p {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .modalachat,
+  .modalpanier {
     position: relative;
-    width: 19rem;
-    height: 20rem;
-    /** top: -400px;*/
-    background-color: rgb(219, 219, 219);
-    /** display: block;**/
+    top: 40px;
     margin-left: auto;
     margin-right: auto;
-    z-index: 1;
-    display: none;
-    text-align: center;
+    width: 80%;
+    max-width: 300px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    border: 1px solid rgb(5, 42, 252);
     border-radius: 1rem;
+    text-decoration: none;
+    margin-bottom: 25px;
+    padding: 10px;
+    background-color: rgb(63, 206, 158);
     box-shadow: 1px 1px 1px 1px #222222;
-
-
-
-    h2 {
-        margin-top: 1rem;
-        padding: 10px;
-    }
-
-    p {
-        font-size: 1.2rem;
-        font-weight: 600;
-
-    }
-
-    .modalachat,
-    .modalpanier {
-        position: relative;
-        top: 40px;
-        margin-left: auto;
-        margin-right: auto;
-        width: 80%;
-        max-width: 300px;
-        font-size: 1.2rem;
-        font-weight: 800;
-        border: 1px solid rgb(5, 42, 252);
-        border-radius: 1rem;
-        text-decoration: none;
-        margin-bottom: 25px;
-        padding: 10px;
-        background-color: rgb(63, 206, 158);
-        box-shadow: 1px 1px 1px 1px #222222;
-
-    }
+  }
 }
 
 #produit {
-    position: absolute;
-    top: 0;
-    z-index: 0;
+  position: absolute;
+  top: 0;
+  z-index: 0;
 }
 
-
-
 article {
+  position: relative;
+
+  margin-right: auto;
+  margin-bottom: 30px;
+  margin-left: auto;
+
+  width: 100%;
+
+  text-align: center;
+
+  h1 {
+    padding-left: 20px;
+  }
+
+  h3.name {
+    text-align: left;
+    padding-left: 30px;
+    font-size: 1.5rem;
+  }
+
+  #ajoutpanier {
     position: relative;
+    font-size: 1.3rem;
+    color: #000;
 
-    margin-right: auto;
-    margin-bottom: 30px;
+    border-radius: 10px;
+    background-color: #dfdfdf;
+    display: block;
     margin-left: auto;
+    margin-right: auto;
+    width: 35%;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0px 5px 5px 0px #222222;
+  }
 
-    width: 100%;
+  img.img {
+    top: 0px;
+    left: 0px;
+    position: relative;
+    box-shadow: 1px 1px 1px 1px #222222;
+    border-radius: 5px;
+    width: 90%;
+    height: auto;
+    object-fit: cover;
+  }
 
-    text-align: center;
+  .price {
+    font-size: 1.5rem;
+    font-weight: 900;
 
-    h1 {
-        padding-left: 20px;
-    }
+    position: relative;
+    top: -50px;
+    text-align: right;
+    padding-right: 50px;
+  }
 
-    h3.name {
-        text-align: left;
-        padding-left: 30px;
-        font-size: 1.5rem;
-    }
+  .description {
+    font-size: 1.2rem;
+    position: relative;
+    top: -35px;
+    margin-left: 10px;
+    margin-right: 15px;
+  }
 
-    #ajoutpanier {
-        position: relative;
-        font-size: 1.3rem;
-        color: #000;
+  select {
+    position: relative;
+    top: -50px;
+    font-size: 1.2rem;
+    background-color: rgb(238, 237, 225);
+  }
 
-
-        border-radius: 10px;
-        background-color: #dfdfdf;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 35%;
-        padding-left: 15px;
-        padding-right: 15px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        margin-bottom: 10px;
-        box-shadow: 0px 5px 5px 0px #222222;
-    }
-
-
-    img.img {
-        top: 0px;
-        left: 0px;
-        position: relative;
-        box-shadow: 1px 1px 1px 1px #222222;
-        border-radius: 5px;
-        width: 90%;
-        height: auto;
-        object-fit: cover;
-    }
-
-    .price {
-        font-size: 1.5rem;
-        font-weight: 900;
-
-        position: relative;
-        top: -50px;
-        text-align: right;
-        padding-right: 50px;
-    }
-
-    .description {
-        font-size: 1.2rem;
-        position: relative;
-        top: -35px;
-        margin-left: 10px;
-        margin-right: 15px;
-    }
-
-
-
-    select {
-        position: relative;
-        top: -50px;
-        font-size: 1.2rem;
-        background-color: rgb(238, 237, 225);
-    }
-
-
-    .link {
-        font-size: 1.3rem;
-        color: #000;
-        position: relative;
-        top: -30px;
-        background-color: #dfdfdf;
-        border-radius: 10px;
-        padding-left: 15px;
-        padding-right: 15px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        margin-bottom: 10px;
-        box-shadow: 0px 5px 5px 0px #222222;
-
-    }
-
-
-
+  .link {
+    font-size: 1.3rem;
+    color: #000;
+    position: relative;
+    top: -30px;
+    background-color: #dfdfdf;
+    border-radius: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0px 5px 5px 0px #222222;
+  }
 }
 
 #catalogueteddy {
-
-    .teddyArticle {
-
-        p.description {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
+  .teddyArticle {
+    p.description {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
+  }
 }
-
 
 /** produit produit ****/
 main#produit {
-    display: flex;
-    flex-direction: column;
-    top: 110px;
+  display: flex;
+  flex-direction: column;
+  top: 110px;
 
-    h1 {
-        font-size: 1.5rem;
-    }
-
+  h1 {
+    font-size: 1.5rem;
+  }
 }
-
-
 
 /**page panier*****************panier***************/
 .card-produit {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    margin-left: 10px;
-    margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
 
+table {
+  margin-top: 30px;
+
+  margin-left: 20px;
+
+  img.photoarticle {
+    width: 150px;
+  }
+
+  th {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 5px;
+    padding-right: 30px;
+  }
+
+  td {
+    font-size: 1.2rem;
+    min-width: 200px;
+    text-align: center;
+  }
+
+  td#sommeTotal {
+    font-size: 2rem;
+    font-weight: 800;
+    background-color: #f1ecec;
+    text-align: right;
+    padding-right: 50px;
+  }
+}
 
 @media all and (min-width: 680px) {
+  /** index nin width 680****/
 
-    /** index nin width 680**/
+  main {
+    display: flex;
+  }
 
-    main {
-        display: flex;
+  article {
+    width: 40%;
+
+    padding-bottom: 40px;
+
+    img.img {
+      height: 16rem;
     }
+  }
+
+  /**** article article **/
+
+  main#produit {
+    display: flex;
+    flex-direction: column;
 
     article {
-        width: 40%;
+      width: 80%;
+      padding-bottom: 40px;
+      padding-top: 40px;
 
-        padding-bottom: 40px;
-
-        img.img {
-            height: 16rem;
-        }
+      img.img {
+        height: auto;
+      }
     }
-
-    /**** article article **/
-
-    main#produit {
-        display: flex;
-        flex-direction: column;
-
-        article {
-            width: 80%;
-            padding-bottom: 40px;
-            padding-top: 40px;
-
-            img.img {
-                height: auto;
-            }
-
-        }
-
-    }
+  }
 }
 
 /** fin @media 680 **/

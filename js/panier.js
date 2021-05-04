@@ -6,11 +6,12 @@ window.onload = function get_body() {
 
   let recapTable = document.createElement("table");
   let ligneTableLigne = document.createElement("tr");
-  let recapPhoto = document.createElement("th");
-  let recapNom = document.createElement("th");
-  let recapCouleur = document.createElement("th");
-  let recapPrixUnitaire = document.createElement("th");
-  let recapRemove = document.createElement("th");
+  let recapPhoto = document.createElement("td");
+  let recapNom = document.createElement("td");
+  let recapCouleur = document.createElement("td");
+  let recapPrixUnitaire = document.createElement("td");
+  let recapPrixTotalArticle = document.createElement("td"); //deplacement prixtotalarticle
+  let recapRemove = document.createElement("td");
   let ligneTotal = document.createElement("tr");
   let colonneTotal = document.createElement("th");
   let recapPrixPaye = document.createElement("td");
@@ -23,29 +24,36 @@ window.onload = function get_body() {
   ligneTableLigne.appendChild(recapNom);
   ligneTableLigne.appendChild(recapCouleur);
   ligneTableLigne.appendChild(recapPrixUnitaire);
+  ligneTableLigne.appendChild(recapPrixTotalArticle); //ajoute manque colonne sur tableau
   ligneTableLigne.appendChild(recapRemove);
   recapTable.appendChild(ligneTableLigne);
-  // recapPanier.appendChild(recap);
+  recapPanier.appendChild(recapTable);
 
   //contenu des entetes
   recapPhoto.textContent = "Article";
   recapNom.textContent = "Nom";
-  recapCouleur.textContent = "Couleur";
-  recapPrixUnitaire.textContent = "Prix";
-  recapRemove.textContent = "Annuler";
+  recapCouleur.textContent = "Prix";
+  recapPrixUnitaire.textContent = "Quantité";
+  recapPrixTotalArticle.textContent = "Total";
+  recapRemove.textContent = "Supprimer"; //colonne supprimer
 
   //affichage article dans tableau panier avec for
   let sommeTotal = 0;
 
-  var keys = Object.keys(localStorage);
-  var i = keys.length;
-  for (var key in keys) {
-    var idProduit = keys[key];
-    var qty = localStorage.getItem(keys[key]);
-    console.log(idProduit + "" + qty);
-    afficherArticle(idProduit, qty);
-    i++;
+  async function AfficherTableau() {
+    var keys = Object.keys(localStorage);
+    var i = keys.length;
+
+    for (var key in keys) {
+      var idProduit = keys[key];
+      var qty = localStorage.getItem(keys[key]);
+      console.log(idProduit + "" + qty);
+      var x = await afficherArticle(idProduit, qty);
+      i++;
+    }
+    afficherTotal();
   }
+  AfficherTableau();
 
   async function getArticle(id) {
     let url = "http://localhost:3000/api/teddies/" + id;
@@ -65,6 +73,8 @@ window.onload = function get_body() {
     let nomArticle = document.createElement("td");
     let couleurArticle = document.createElement("td");
     let prixUnitArticle = document.createElement("td");
+    let qtyArticle = document.createElement("td");
+    let prixTotalArticle = document.createElement("td");
     let supprimerArticle = document.createElement("td");
     let removeArticle = document.createElement("i");
 
@@ -76,8 +86,9 @@ window.onload = function get_body() {
     photoArticle.setAttribute("alt", "Photo de l'article commandé");
     couleurArticle.setAttribute("couleur", "couleurarticle");
     removeArticle.setAttribute("id", "remove" + article._id);
-    removeArticle.setAttribute("class", "fas fa-times-circle fa-1x");
+    //removeArticle.setAttribute("class", "fa-trash-restore-alt"); pas affichage poubelle
     removeArticle.setAttribute("title", "Supprimer article ?");
+    prixTotalArticle.setAttribute("class", "totalProduit");
 
     //Supprimer un produit qui est dans le panier
     removeArticle.addEventListener("click", (event) => {
@@ -89,40 +100,100 @@ window.onload = function get_body() {
     ligneArticle.appendChild(photoArticle);
     ligneArticle.appendChild(nomArticle);
     ligneArticle.appendChild(prixUnitArticle);
+    ligneArticle.appendChild(qtyArticle);
+    ligneArticle.appendChild(prixTotalArticle);
     ligneArticle.appendChild(supprimerArticle);
     supprimerArticle.appendChild(removeArticle);
 
     //Contenu de chaque ligne
 
     nomArticle.textContent = article.name;
-    prixUnitArticle.textContent = article.price / 100 + " €";
-    sommeTotal += (article.price * qty) / 100;
+    prixUnitArticle.textContent = article.price / 100;
+    qtyArticle.textContent = qty;
+    prixTotalArticle.textContent = (article.price * qty) / 100 + " €";
   }
+  /****************************************************************** */
+  /***************************************************************** */
+  //plus moins
+  qty = document.getElementById("result");
+  //result = parseInt(qty.value, 10);
 
+  let plus = document.getElementById("plus");
+  let moins = document.getElementById("moins");
+  plus.appendChild(qty);
+  moins.appendChild(qty);
+
+  // prendre en compte la modification du nombre au clavier
+  qty.addEventListener("blur", function () {
+    result = document.getElementById("result");
+    result = parseInt(result.value, 10);
+  });
+
+  // boutton +
+  plus.addEventListener("click", function () {
+    if (result >= 0 && result < 99) {
+      result++;
+      document.getElementById("result").value = result;
+    }
+  });
+
+  // boutton -
+  moins.addEventListener("click", function () {
+    if (result > 0 && result <= 99) {
+      result--;
+      document.getElementById("result").value = result;
+    }
+  });
+
+  /*************************************************************** */
   //console.log(panier);
+  function afficherTotal() {
+    //total du tableau
+    recapTable.appendChild(ligneTotal);
+    ligneTotal.appendChild(colonneTotal);
+    ligneTotal.setAttribute("id", "ligneSomme");
+    colonneTotal.textContent = "Total à payer";
+    ligneTotal.appendChild(recapPrixPaye);
 
-  //total du tableau
-  recapTable.appendChild(ligneTotal);
-  ligneTotal.appendChild(colonneTotal);
-  ligneTotal.setAttribute("id", "ligneSomme");
-  colonneTotal.textContent = "Total à payer";
-  ligneTotal.appendChild(recapPrixPaye);
+    recapPrixPaye.setAttribute("id", "sommeTotal");
+    recapPrixPaye.setAttribute("colspan", "4");
+    colonneTotal.setAttribute("id", "colonneTotal");
+    colonneTotal.setAttribute("colspan", "2");
 
-  recapPrixPaye.setAttribute("id", "sommeTotal");
-  recapPrixPaye.setAttribute("colspan", "4");
-  colonneTotal.setAttribute("id", "colonneTotal");
-  colonneTotal.setAttribute("colspan", "2");
-
-  //prix total à payer
-  console.log(sommeTotal);
-  document.getElementById("sommeTotal").textContent = sommeTotal + " €";
+    //prix total à payer
+    var totaux = document.getElementsByClassName("totalProduit");
+    //console.log(totaux, totaux.length);
+    for (var i = 0; i < totaux.length; i++) {
+      console.log(totaux[i].innerText);
+      sommeTotal += parseInt(totaux[i].innerText);
+    }
+    console.log(sommeTotal);
+    document.getElementById("sommeTotal").textContent = sommeTotal + " €";
+  }
 }; // fin window
 
 annulerArticle = (i) => {
-  //  panier.splice(i, 1);
+  let videpanier = document.createElement("button");
+  videpanier.setAttribute("class", "videpanier");
+  panier.splice(i, 1);
   localStorage.clear();
-  // Mise à jour nouveau panier avec suppression de l'article
-  //  localStorage.setItem("panier", JSON.stringify(panier));
+  //Mise à jour nouveau panier avec suppression de l'article
+  localStorage.setItem("panier", JSON.stringify(panier));
   //Mise à jour page pour affichage de la suppression au client
   window.location.reload();
 };
+
+/*************************************************************************** */
+/************************************************************************** */
+
+/**********************prix avec 2 00final */
+
+function cents(price) {
+  if (Number.isNaN(price)) return "00.00";
+  let priceString = price.tosString();
+  return (
+    priceString.slice(0, prcieString - 2) +
+    "," +
+    priceString.slice(priceString.length - 2)
+  );
+}

@@ -244,12 +244,39 @@ main#produit h1 {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  margin-left: 10px;
-  margin-right: 10px;
+}
+
+table {
+  margin-top: 30px;
+  margin-left: 20px;
+}
+table img.photoarticle {
+  width: 150px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+table th {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 5px;
+  padding-right: 30px;
+}
+table td {
+  font-size: 1.2rem;
+  min-width: 200px;
+  text-align: center;
+}
+table td#sommeTotal {
+  font-size: 2rem;
+  font-weight: 800;
+  background-color: #f1ecec;
+  text-align: right;
+  padding-right: 50px;
 }
 
 @media all and (min-width: 680px) {
-  /** index nin width 680**/
+  /** index nin width 680****/
   main {
     display: flex;
   }
