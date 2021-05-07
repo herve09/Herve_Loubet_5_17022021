@@ -48,7 +48,7 @@ window.onload = function get_body() {
       var idProduit = keys[key];
       var qty = localStorage.getItem(keys[key]);
       console.log(idProduit + "" + qty);
-      var x = await afficherArticle(idProduit, qty);
+      //  var x = await afficherArticle(idProduit, qty);
       i++;
     }
     afficherTotal();
@@ -75,6 +75,9 @@ window.onload = function get_body() {
     let prixUnitArticle = document.createElement("td");
     let qtyArticle = document.createElement("td");
     let prixTotalArticle = document.createElement("td");
+    let plusArticle = document.createElement("span");
+    let qytResultArticle = document.createElement("span");
+    let moinsArticle = document.createElement("span");
     let supprimerArticle = document.createElement("td");
     let removeArticle = document.createElement("i");
 
@@ -85,8 +88,13 @@ window.onload = function get_body() {
     photoArticle.setAttribute("src", article.imageUrl);
     photoArticle.setAttribute("alt", "Photo de l'article commandé");
     couleurArticle.setAttribute("couleur", "couleurarticle");
+    qtyResultArticle.setAttribute("id", "result-" + article._id);
+    plusArticle.setAttribute("id", "plus" + article._id);
+    plusArticle.setAttribute("class", "far fa-plus-square");
+    moinsArticle.setAttribute("id", "moins" + article - id);
+    moinsArticle.setAttribute("class", "far fa-minus-square");
     removeArticle.setAttribute("id", "remove" + article._id);
-    //removeArticle.setAttribute("class", "fa-trash-restore-alt"); pas affichage poubelle
+    removeArticle.setAttribute("class", " far fa-trash-alt");
     removeArticle.setAttribute("title", "Supprimer article ?");
     prixTotalArticle.setAttribute("class", "totalProduit");
 
@@ -95,55 +103,59 @@ window.onload = function get_body() {
       this.annulerArticle(i);
     });
 
+    //Contenu de chaque ligne
+
+    nomArticle.textContent = article.name;
+    prixUnitArticle.textContent = (article.price / 100).toFixed(2);
+    qtyResultArticle.textContent = qty;
+
+    prixTotalArticle.textContent =
+      ((article.price * qty) / 100).toFixed(2) + " €";
+
+    /********************************************************************************************************** */
+
     //Agencement  HTML
     recapTable.appendChild(ligneArticle);
     ligneArticle.appendChild(photoArticle);
     ligneArticle.appendChild(nomArticle);
     ligneArticle.appendChild(prixUnitArticle);
+    qtyArticle.appendChild(moinsarticle);
+    qtyArticle.appendChild(qtyResultArticle);
+    qtyArticle.appendChild(plusArticle);
     ligneArticle.appendChild(qtyArticle);
     ligneArticle.appendChild(prixTotalArticle);
     ligneArticle.appendChild(supprimerArticle);
     supprimerArticle.appendChild(removeArticle);
 
-    //Contenu de chaque ligne
+    /***************************************************************** */
+    //plus moins
+    //result = parseInt(qty.value, 10);
 
-    nomArticle.textContent = article.name;
-    prixUnitArticle.textContent = article.price / 100;
-    qtyArticle.textContent = qty;
-    prixTotalArticle.textContent = (article.price * qty) / 100 + " €";
+    let qtyResult = document.getElementById("result-" + article._id);
+    let plus = document.getElementById("plus");
+    let moins = document.getElementById("moins");
+    //plus.appendChild(qty);
+    //moins.appendChild(qty);
+    qty.addEventListener("blur", function () {
+      result = parseInt(result.value, 10);
+    });
+
+    // boutton +
+    plus.addEventListener("click", function () {
+      if (result >= 0 && result < 99) {
+        result++;
+        document.getElementById("result").value = result;
+      }
+    });
+
+    // boutton -
+    moins.addEventListener("click", function () {
+      if (result > 0 && result <= 99) {
+        result--;
+        document.getElementById("result").value = result;
+      }
+    });
   }
-  /****************************************************************** */
-  /***************************************************************** */
-  //plus moins
-  qty = document.getElementById("result");
-  //result = parseInt(qty.value, 10);
-
-  let plus = document.getElementById("plus");
-  let moins = document.getElementById("moins");
-  plus.appendChild(qty);
-  moins.appendChild(qty);
-
-  // prendre en compte la modification du nombre au clavier
-  qty.addEventListener("blur", function () {
-    result = document.getElementById("result");
-    result = parseInt(result.value, 10);
-  });
-
-  // boutton +
-  plus.addEventListener("click", function () {
-    if (result >= 0 && result < 99) {
-      result++;
-      document.getElementById("result").value = result;
-    }
-  });
-
-  // boutton -
-  moins.addEventListener("click", function () {
-    if (result > 0 && result <= 99) {
-      result--;
-      document.getElementById("result").value = result;
-    }
-  });
 
   /*************************************************************** */
   //console.log(panier);
@@ -168,10 +180,11 @@ window.onload = function get_body() {
       sommeTotal += parseInt(totaux[i].innerText);
     }
     console.log(sommeTotal);
-    document.getElementById("sommeTotal").textContent = sommeTotal + " €";
+    document.getElementById("sommeTotal").textContent =
+      sommeTotal.toFixed(2) + " €";
   }
 }; // fin window
-
+/**
 annulerArticle = (i) => {
   let videpanier = document.createElement("button");
   videpanier.setAttribute("class", "videpanier");
@@ -182,18 +195,4 @@ annulerArticle = (i) => {
   //Mise à jour page pour affichage de la suppression au client
   window.location.reload();
 };
-
-/*************************************************************************** */
-/************************************************************************** */
-
-/**********************prix avec 2 00final */
-
-function cents(price) {
-  if (Number.isNaN(price)) return "00.00";
-  let priceString = price.tosString();
-  return (
-    priceString.slice(0, prcieString - 2) +
-    "," +
-    priceString.slice(priceString.length - 2)
-  );
-}
+**/
