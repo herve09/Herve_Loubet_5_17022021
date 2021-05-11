@@ -252,8 +252,6 @@ table {
 }
 table img.photoarticle {
   width: 150px;
-  padding-right: 20px;
-  padding-bottom: 20px;
 }
 table th {
   text-align: center;
@@ -266,6 +264,10 @@ table td {
   font-size: 1.2rem;
   min-width: 200px;
   text-align: center;
+}
+table td .svg-inline--fa {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 table td#sommeTotal {
   font-size: 2rem;
@@ -285,9 +287,6 @@ table td#sommeTotal {
     width: 40%;
     padding-bottom: 40px;
   }
-  article img.img {
-    height: 16rem;
-  }
 
   /**** article article **/
   main#produit {
@@ -301,6 +300,7 @@ table td#sommeTotal {
   }
   main#produit article img.img {
     height: auto;
+    max-width: 250px;
   }
 }
 /** fin @media 680 **//*# sourceMappingURL=style.css.map */

@@ -48,7 +48,7 @@ window.onload = function get_body() {
       var idProduit = keys[key];
       var qty = localStorage.getItem(keys[key]);
       console.log(idProduit + "" + qty);
-      //  var x = await afficherArticle(idProduit, qty);
+      var x = await afficherArticle(idProduit, qty);
       i++;
     }
     afficherTotal();
@@ -76,7 +76,7 @@ window.onload = function get_body() {
     let qtyArticle = document.createElement("td");
     let prixTotalArticle = document.createElement("td");
     let plusArticle = document.createElement("span");
-    let qytResultArticle = document.createElement("span");
+    let qtyResultArticle = document.createElement("span");
     let moinsArticle = document.createElement("span");
     let supprimerArticle = document.createElement("td");
     let removeArticle = document.createElement("i");
@@ -89,18 +89,18 @@ window.onload = function get_body() {
     photoArticle.setAttribute("alt", "Photo de l'article commandé");
     couleurArticle.setAttribute("couleur", "couleurarticle");
     qtyResultArticle.setAttribute("id", "result-" + article._id);
-    plusArticle.setAttribute("id", "plus" + article._id);
+    plusArticle.setAttribute("id", "plus-" + article._id);
     plusArticle.setAttribute("class", "far fa-plus-square");
-    moinsArticle.setAttribute("id", "moins" + article - id);
+    moinsArticle.setAttribute("id", "moins-" + article._id);
     moinsArticle.setAttribute("class", "far fa-minus-square");
     removeArticle.setAttribute("id", "remove" + article._id);
-    removeArticle.setAttribute("class", " far fa-trash-alt");
+    removeArticle.setAttribute("class", "far fa-trash-alt"); //pas affichage poubelle
     removeArticle.setAttribute("title", "Supprimer article ?");
     prixTotalArticle.setAttribute("class", "totalProduit");
 
     //Supprimer un produit qui est dans le panier
-    removeArticle.addEventListener("click", (event) => {
-      this.annulerArticle(i);
+    removeArticle.addEventListener("click", function (event) {
+      annulerArticle(article._id);
     });
 
     //Contenu de chaque ligne
@@ -108,18 +108,16 @@ window.onload = function get_body() {
     nomArticle.textContent = article.name;
     prixUnitArticle.textContent = (article.price / 100).toFixed(2);
     qtyResultArticle.textContent = qty;
-
     prixTotalArticle.textContent =
       ((article.price * qty) / 100).toFixed(2) + " €";
-
-    /********************************************************************************************************** */
+    /****************************************************************** */
 
     //Agencement  HTML
     recapTable.appendChild(ligneArticle);
     ligneArticle.appendChild(photoArticle);
     ligneArticle.appendChild(nomArticle);
     ligneArticle.appendChild(prixUnitArticle);
-    qtyArticle.appendChild(moinsarticle);
+    qtyArticle.appendChild(moinsArticle);
     qtyArticle.appendChild(qtyResultArticle);
     qtyArticle.appendChild(plusArticle);
     ligneArticle.appendChild(qtyArticle);
@@ -132,12 +130,12 @@ window.onload = function get_body() {
     //result = parseInt(qty.value, 10);
 
     let qtyResult = document.getElementById("result-" + article._id);
-    let plus = document.getElementById("plus");
-    let moins = document.getElementById("moins");
+    let plus = document.getElementById("plus-" + article._id);
+    let moins = document.getElementById("moins-" + article._id);
     //plus.appendChild(qty);
     //moins.appendChild(qty);
-    qty.addEventListener("blur", function () {
-      result = parseInt(result.value, 10);
+    qtyResult.addEventListener("blur", function () {
+      result = parseInt(qtyResult.value, 10);
     });
 
     // boutton +
@@ -154,6 +152,8 @@ window.onload = function get_body() {
         result--;
         document.getElementById("result").value = result;
       }
+
+      // prendre en compte la modification du nombre au clavier
     });
   }
 
@@ -180,12 +180,14 @@ window.onload = function get_body() {
       sommeTotal += parseInt(totaux[i].innerText);
     }
     console.log(sommeTotal);
+    var sommeCents = cents(sommeTotal);
     document.getElementById("sommeTotal").textContent =
       sommeTotal.toFixed(2) + " €";
   }
 }; // fin window
-/**
-annulerArticle = (i) => {
+
+function annulerArticle(i) {
+  console.log(i);
   let videpanier = document.createElement("button");
   videpanier.setAttribute("class", "videpanier");
   panier.splice(i, 1);
@@ -194,5 +196,19 @@ annulerArticle = (i) => {
   localStorage.setItem("panier", JSON.stringify(panier));
   //Mise à jour page pour affichage de la suppression au client
   window.location.reload();
-};
-**/
+}
+
+/*************************************************************************** */
+/************************************************************************** */
+
+/**********************prix avec 2 00final */
+
+function cents(price) {
+  if (Number.isNaN(price)) return "00.00";
+  let priceString = price.toString();
+  return (
+    priceString.slice(0, priceString.length - 2) +
+    "," +
+    priceString.slice(priceString.length - 2)
+  );
+}

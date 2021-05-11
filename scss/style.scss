@@ -294,6 +294,11 @@ table {
     font-size: 1.2rem;
     min-width: 200px;
     text-align: center;
+
+    .svg-inline--fa {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
   }
 
   td#sommeTotal {
@@ -316,10 +321,6 @@ table {
     width: 40%;
 
     padding-bottom: 40px;
-
-    img.img {
-      height: 16rem;
-    }
   }
 
   /**** article article **/
@@ -335,6 +336,7 @@ table {
 
       img.img {
         height: auto;
+        max-width: 250px;
       }
     }
   }
