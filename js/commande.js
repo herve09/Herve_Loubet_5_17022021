@@ -1,11 +1,35 @@
 window.onload = function get_body() {
   var x = document.getElementsByTagName("body")[0];
 
+  function afficherformulaire() {
+    let formulaire = document.createElementById("form");
+    let nom = document.createElementById("nom");
+    let prenom = document.createElementById("prenom");
+    let mail = document.createElementById("mail");
+    let adresse = document.createElementById("adresse");
+    let ville = document.createElementById("ville");
+
+    nom.append(Childform);
+    prenom.append(Childform);
+    mail.append(Childform);
+    adresse.append(Childform);
+    ville.append(Childform);
+
+    nom.textContent = "Nom :";
+    prenom.textContent = "Prénom :";
+    mail.textContent = "Mail :";
+    adresse.textContent = "Adresse :";
+    ville.textContent = "Ville :";
+  }
+  //
+  //
+  //
   //formulaire vérification inputs
   checkInput = () => {
     //Controle caractere
     let checkNumber = /[0-9]/;
-    let checkMail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let checkMail =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     let checkSpecialCharacter = /[§!@#$%^&*().?":{}|<>]/;
 
     //message fin de controle
