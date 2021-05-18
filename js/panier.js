@@ -55,6 +55,7 @@ window.onload = function get_body() {
   }
   AfficherTableau();
 
+ 
   async function getArticle(id) {
     let url = "http://localhost:3000/api/teddies/" + id;
     try {
@@ -64,7 +65,31 @@ window.onload = function get_body() {
       console.log(error);
     }
   }
+  
 
+   //!info antony 
+   /**
+  async function(){
+    const articles = await getArticles();
+    //console.log(articles);
+    for (let i in articles) {
+        console.log(articles[i]);
+    }
+
+})()
+ 
+  async function getArticles(){
+    try {
+        let res = await fetch('http://localhost:3000/api/teddies');
+        return await res.json();
+    }
+    catch(error) {
+        alert(error);
+    }
+  
+
+    //! fin info antony fermeture balise } ligne 413
+*/
   async function afficherArticle(id, qty) {
     let article = await getArticle(id);
 
@@ -388,4 +413,5 @@ result++;
   }; //fin check input
   //! fin formulaire
   
+//!} fin info antony
 }; // fin window
