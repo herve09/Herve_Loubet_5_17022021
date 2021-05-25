@@ -104,9 +104,10 @@ window.onload = function get_body() {
     let qtyResultArticle = document.createElement("span");
     let moinsArticle = document.createElement("span");
     let supprimerArticle = document.createElement("td");
-    let removeArticle = document.createElement("button");//! i
+    let removeArticle = document.createElement("span")
+   // let removeArticle = document.createElement("i");
 
-    //Attribution des class ou Id htlm
+    //Attribution des lass ou Id htlm
     ligneArticle.setAttribute("id", "article" + article._id);
     photoArticle.setAttribute("class", "photoarticle");
     photoArticle.setAttribute("width", "100px");
@@ -126,10 +127,10 @@ window.onload = function get_body() {
 
     function annulerArticle(i) {
       console.log(i);
-      let videpanier = document.createElement("button");
-      videpanier.setAttribute("class", "videpanier");
-      panier.splice(i, 1);
-      localStorage.clear();
+     // let videpanier = document.createElement("button");
+      //videpanier.setAttribute("class", "videpanier");
+      //panier.splice(i, 1);
+     // localStorage.clear();
       //Mise à jour nouveau panier avec suppression de l'article
       localStorage.setItem("panier", JSON.stringify(panier));
       //Mise à jour page pour affichage de la suppression au client
@@ -174,7 +175,9 @@ window.onload = function get_body() {
     //result = parseInt(qty.value, 10);
 
     let result = document.getElementById("result-" + article._id);
+    let spanplus = document.createElement("span")
     let plus = document.getElementById("plus-" + article._id);
+    let spanmoins = document.createElement("span");
     let moins = document.getElementById("moins-" + article._id);
    // plus.appendChild(qtyResultArticle);
 
@@ -186,7 +189,7 @@ window.onload = function get_body() {
     });
 
 // boutton +
-plus.addEventListener("click", function () {
+spanplus.addEventListener("click", function () {
   if (result >= 0 && result < 99) {
 result++;
     document.getElementById("result") = result;
@@ -196,7 +199,7 @@ result++;
    // console.log(result)
     //console.log(qty)
     // boutton -
-    moins.addEventListener("click", function () {
+    spanmoins.addEventListener("click", function () {
       if (result > 0 && result <= 99) {
         result--;
         document.getElementById("result").value = result;
